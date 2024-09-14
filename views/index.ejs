@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODLINFO</title>
+    <link rel="icon" href="https://hodlinfo.com/favicon.ico" type="image/icon type">
+    <link rel="stylesheet" href="css/index.css">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo"><img src="https://hodlinfo.com/static/media/HODLINFO.8f78fc06.png" class="fiat-logo" style="padding:20 px;"></div>
+            <div class="controls">
+                <button class="btn"><select name="INR" id=""><option value="INR">INR</option></select></button>
+                <button class="btn">
+                    <select name="BTC" id="">
+                    <option value="BTC">BTC</option>
+                    <option value="BTC">ETH</option>
+                    <option value="BTC">USDT</option>
+                    <option value="BTC">XRP</option>
+                    <option value="BTC">TRX</option>
+                    <option value="BTC">DASH</option>
+                    <option value="BTC">ZEC</option>
+                    <option value="BTC">XEM</option>
+                    <option value="BTC">IOST</option>
+                    <option value="BTC">WIN</option>
+                    <option value="BTC">BTT</option>
+                    <option value="BTC">WRX</option>
+                    </select></button>
+                <button class="btn buy-btn">BUY BTC</button>
+            </div>
+
+            <div class="left">
+
+                <div class="count">
+                    <p>60</p>
+                </div>
+                <div class="telegram">
+                    <div class="Ticon">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <div>
+                        Connect Telegram
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle" >
+                    <span class="slider round" ></span>
+                  </label>
+            </div>
+        </header>
+        <section class="main">
+            <div class="info">
+                <div class="info-block">
+                    <p class="label">0.1 %</p>
+                    <p>5 Mins</p>
+                </div>
+                <div class="info-block">
+                    <p class="label">0.96 %</p>
+                    <p>1 Hour</p>
+                </div>
+                <div class="price-info">
+                    <h2>Best Price to Trade</h2>
+                    <h1 class="price">₹26,56,110</h1>
+                    <p>Average BTC/INR net price including commission</p>
+                </div>
+                <div class="info-block">
+                    <p class="label">2.73 %</p>
+                    <p>1 Days</p>
+                </div>
+                <div class="info-block">
+                    <p class="label">7.51 %</p>
+                    <p>7 Days</p>
+                </div>
+            </div>
+
+            <div class="platform-table">
+                <!-- table  -->
+                <table class="table-alter">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Base Unit</th>
+                            <th scope="col" class="text-center">Name</th>
+                            <th scope="col" class="text-center">Last Traded Price</th>
+                            <th scope="col" class="text-center">
+                                <sup>Buy</sup><br>
+                                <sub>Sell Price</sub>
+                            </th>
+                            <th scope="col" class="text-center">Volume</th>
+                            <th scope="col" class="text-center">
+                                <sup>High</sup><br>
+                                <sub>Low</sub>
+                            </th>
+                            <th scope="col" class="text-center">Trade Time</th>
+                            <th>Difference</th>
+                            <th>Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <% data.forEach(function(doc) { %>
+                                <tr>
+                                <td class="text-center"><%= doc.baseUnit %></td>
+                                <td class="text-center"><%= doc.name %></td>
+                                <td class="text-center">₹ <%= doc.last %></td>
+                                <td class="text-center">
+                                    <sup class="positive">₹ <%= doc.buy %></sup><br>
+                                    <sub class="negative">₹ <%= doc.sell %></sub>
+                                </td>
+                                <td class="text-center"><%= doc.volume %></td>
+                                
+                                <td class="text-center"> 
+                                    <sup class="positive">₹ <%= doc.high %></sup><br>
+                                    <sub class="negative">₹ <%= doc.low %></sub>
+                                </td>
+                                <td class="text-center"><%= doc.tradeTime.toString().split(" ")[4] %></td>
+                                <td class="red">00.00%</td>
+                            <td class="green">▲ ₹1,10,074</td>
+                                </tr>
+                            <% }); %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <button class="add">
+            Add hodlinfo to home screen
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const checkbox = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check if dark mode is already enabled
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        checkbox.checked = true;
+    } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+    }
+
+    // Toggle dark mode
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+    });
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1b1f2a;
+  color: #d4d4dc;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+
+
+body.light-mode {
+  background-color:#fff;
+  
+}
+
+
+
+body.dark-mode {
+  background-color:#191d28;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo .fiat-logo {
+  width: 350px;
+}
+
+.left{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #2E3241;
+  color: #ffff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn select {
+  font-style: normal;
+  color: white;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn select option {
+  color: black;
+}
+
+.buy-btn {
+  background-color: #2E3241;
+  color: #ffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.count {
+  height: 35px;
+  width: 35px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #3DC6C1;
+  color: #3DC6C1;
+}
+
+.count p {
+  font-weight: 750;
+  margin: 0;
+}
+
+.telegram {
+  display: flex;
+  align-items: center;
+  background-color: #3DC6C1;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+}
+
+.Ticon {
+  margin-right: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider  {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F8F9FA;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #3DC6C1;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: #2E3241;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Info Section */
+.main {
+  padding: 20px;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.info-block {
+  text-align: center;
+  margin: 10px;
+}
+
+.info-block p {
+  color: #888;
+  margin: 5px 0;
+}
+
+.info-block .label {
+  font-size: 30px;
+  font-weight: 400;
+  color: #3DC6C1;
+}
+
+/* Price Info */
+.price-info h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #888;
+}
+
+.price-info p {
+  color: #888;
+}
+
+.price-info .price {
+  margin-top: 19px;
+  margin-bottom: 10px;
+  font-weight: 540;
+  font-size: 3rem;
+  color: white;
+}
+
+/* Platform Table */
+.platform-table {
+  overflow-x: auto;
+}
+
+.platform-table table {
+  width: 100%;
+  margin-top: 30px;
+  background-color: #2a2f3a;
+  border-collapse: collapse;
+}
+
+.platform-table th,
+.platform-table td {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 15px solid #1b1f2a;
+}
+
+.platform-table th {
+  background-color: #1b1f2a;
+  color: #888;
+}
+
+.green {
+  color: #41dbd6;
+}
+
+.red {
+  color: #f87171;
+}
+
+.platform-table tr:nth-child(even) {
+  background-color: #2a2f3a;
+}
+
+.add {
+  display: block;
+  margin: 20px auto;
+  height: 40px;
+  width: 200px;
+  border: 3px solid #3DC6C1;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #3DC6C1;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .controls {
+      margin-top: 10px;
+  }
+
+  .telegram {
+      margin-top: 10px;
+  }
+.left{
+  padding-top: 5px;
+  flex-direction: column;
+  gap:5px
+ 
+}
+  .switch {
+      margin-top: 10px;
+     
+  }
+
+  .info-block .label {
+      font-size: 24px;
+  }
+
+  .price-info .price {
+      font-size: 2.5rem;
+  }
+
+  .platform-table th,
+  .platform-table td {
+      font-size: 14px;
+      padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-block .label {
+      font-size: 20px;
+  }
+
+  .price-info .price {
+      font-size: 2rem;
+  }
+
+  .platform-table th,
+  .platform-table td {
+      font-size: 12px;
+      padding: 3px;
+  }
+}
